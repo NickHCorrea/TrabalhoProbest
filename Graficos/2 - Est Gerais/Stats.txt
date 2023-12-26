@@ -1,0 +1,18 @@
+Chromecast
+Download
+Média:  3.799335488086478
+Variância:  1.665979814323226
+Desvio padrão:  1.2907284045542757
+Upload
+Média:  3.3496717251158694
+Variância:  0.46160016892790384
+Desvio padrão:  0.679411634377793
+Smart TV
+Download
+Média:  2.350172639895904
+Variância:  6.723920763635554
+Desvio padrão:  2.5930524027939645
+Upload
+Média:  2.1565902037563727
+Variância:  4.1130827523161635
+Desvio padrão:  2.0280736555451244

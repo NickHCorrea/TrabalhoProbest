@@ -57,18 +57,18 @@ res_up_cc.cdf.plot(ax)
 ax.set_xlabel('Upload (Chromecast)')
 ax.set_ylabel('Função Distribuição Empírica')
 
-res_down_tv = stats.ecdf(down_cc)
+res_down_tv = stats.ecdf(down_tv)
 plt.figure()
 ax = plt.subplot()
 res_down_tv.cdf.plot(ax)
-ax.set_xlabel('Download (Chromecast)')
+ax.set_xlabel('Download (SmartTV)')
 ax.set_ylabel('Função Distribuição Empírica')
 
-res_up_tv = stats.ecdf(up_cc)
+res_up_tv = stats.ecdf(up_tv)
 plt.figure()
 ax = plt.subplot()
 res_up_tv.cdf.plot(ax)
-ax.set_xlabel('Upload (Chromecast)')
+ax.set_xlabel('Upload (SmartTV)')
 ax.set_ylabel('Função Distribuição Empírica')
 
 #Média
