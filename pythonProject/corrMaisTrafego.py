@@ -16,7 +16,7 @@ dataset_smartTv['hour'] = dataset_smartTv["date_hour"].apply(lambda x: int(x.spl
 DATASET1 = dataset_smartTv[dataset_smartTv['hour'] == 20][['upLog']]
 DATASET2 = dataset_smartTv[dataset_smartTv['hour'] == 20][['downLog']]
 
-DATASET3 = dataset_chromecast[dataset_chromecast['hour'] == 22][['upLog']]
+DATASET3 = dataset_chromecast[dataset_chromecast['hour'] == 23][['upLog']]
 DATASET4 = dataset_chromecast[dataset_chromecast['hour'] == 23][['downLog']]
 
 #Calculo do coeficiente de correlação amostral
@@ -31,12 +31,18 @@ print(f"P-value: {p_value}")
 
 #Gráfico ScatterPlot
 
-plt.scatter(DATASET1['upLog'], DATASET2['downLog'])
+DATA1_sorted = np.sort(DATASET1, axis=0)
+DATA2_sorted = np.sort(DATASET2, axis=0)
+DATA3_sorted = np.sort(DATASET3, axis=0)
+DATA4_sorted = np.sort(DATASET4, axis=0)
+
+plt.scatter(DATA1_sorted, DATA2_sorted)
 plt.xlabel('upLog')
 plt.ylabel('downLog')
 plt.title('Scatterplot entre DATASET1 e DATASET2')
+plt.show()
 
-plt.scatter(DATASET3['upLog'], DATASET4['downLog'])
+plt.scatter(DATA3_sorted, DATA4_sorted)
 plt.xlabel('upLog')
 plt.ylabel('downLog')
 plt.title('Scatterplot entre DATASET3 e DATASET4')

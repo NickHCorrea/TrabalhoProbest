@@ -2,7 +2,8 @@ import math
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from scipy import stats
+import statsmodels.api as sm
+from statsmodels.graphics.gofplots import qqplot_2samples
 
 dataset_chromecast = pd.read_csv('dataset_chromecast.csv')
 dataset_chromecast['downLog'] = dataset_chromecast['bytes_down'].apply(lambda x: np.log10(x) if x != 0 else 0)
@@ -50,21 +51,13 @@ plt.figure()
 plt.hist(DATASET4, bins_4)
 plt.title("Histograma - Dataset 4")
 
-print(n_1, n_2, n_3, n_4)
+#QQPlot
 
-data1_sorted = np.sort(DATASET1)
-data2_sorted = np.sort(DATASET3)
+DATA1_sorted = np.sort(DATASET1, axis=0)
+DATA2_sorted = np.sort(DATASET2, axis=0)
+DATA3_sorted = np.sort(DATASET3, axis=0)
+DATA4_sorted = np.sort(DATASET4, axis=0)
 
-quantis_teoricos = stats.norm.ppf(np.linspace(0.01, 0.99, 100))
-
-plt.scatter(quantis_teoricos, data1_sorted, label='DATASET1')
-plt.scatter(quantis_teoricos, data2_sorted, label='DATASET3')
-
-plt.plot(quantis_teoricos, quantis_teoricos, color='red', linestyle='--', label='Diagonal de referência')
-
-plt.title('Q-Q Plot')
-plt.xlabel('Quantis teóricos')
-plt.ylabel('Quantis dos dados')
-plt.legend()
-
+qqplot_2samples(DATA1_sorted, DATA3_sorted, xlabel="Smart TV - Upload", ylabel="Chromecast - Upload", line='r')
+qqplot_2samples(DATA2_sorted, DATA4_sorted, xlabel="Smart TV - Download", ylabel="Chromecast - Download", line='r')
 plt.show()

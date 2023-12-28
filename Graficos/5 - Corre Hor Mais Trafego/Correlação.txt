@@ -1,0 +1,7 @@
+1-2
+Coeficiente de Correlação: 0.9154767447400012
+P-value: 0.0
+
+3-4
+Coeficiente de Correlação: 0.7919586388344998
+P-value: 0.0
